@@ -18,6 +18,7 @@ namespace SocialAuth.Views
         {
             InitializeComponent();
             BindingContext = vm = new LoginPageViewModel();
+            vm.Navigation = Navigation;
         }
 
        

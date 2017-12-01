@@ -10,21 +10,14 @@ namespace SocialAuth
 {
     public partial class App : Application
     {
-        static App _Instance;
+       
         public App()
         {
             InitializeComponent();
-            _Instance = this;
             MainPage = new NavigationPage(new LoginPage());
         }
 
-        public static App Instance
-        {
-            get
-            {
-                return _Instance;
-            }
-        }
+        
 
         protected override void OnStart()
         {
@@ -39,10 +32,6 @@ namespace SocialAuth
         protected override void OnResume()
         {
             // Handle when your app resumes
-        }
-
-        public void NavigateToMain() {
-            _Instance.MainPage = new MainPage();
         }
     }
 }

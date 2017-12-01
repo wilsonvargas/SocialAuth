@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialAuth.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,28 +18,22 @@ namespace SocialAuth.ViewModels
         public LoginPageViewModel()
         {
             LoginFacebookCommand = new Command(LoginFacebook);
+            MessagingCenter.Subscribe<object>(this, "GoBack", (sender) =>
+            {
+                App.Current.MainPage = new NavigationPage(new LoginPage());
+            });
         }
 
         private void LoginFacebook()
         {
-            var auth = new OAuth2Authenticator(
-                clientId: Resources.Facebook.Variables.ClientId, // your OAuth2 client id
-                scope: Resources.Facebook.Variables.Scope, // The scopes for the particular API you're accessing. The format for this will vary by API.
-                authorizeUrl: new Uri(Resources.Facebook.Variables.AuthorizeUrl), // the auth URL for the service
-                redirectUrl: new Uri(Resources.Facebook.Variables.RedirectUrl)); // the redirect URL for the service
-
-            auth.Completed += (sender, eventArgs) =>
+            IsBusy = true;
+            MessagingCenter.Subscribe<object, string>(this, "GetUser", async (sender, token) =>
             {
-                if (eventArgs.IsAuthenticated)
-                {
-                    var token = eventArgs.Account.Properties["access_token"];
-
-                }
-                else
-                {
-                    // The user cancelled
-                }
-            };
+                var u = await Services.Facebook.Service.GetUserAsync(token);
+                App.Current.MainPage = new NavigationPage(new MainPage(u));
+            });
+            Navigation.PushAsync(new LoginTransitionPage());
+            IsBusy = false;
         }
     }
 }

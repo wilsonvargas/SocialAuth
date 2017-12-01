@@ -39,11 +39,11 @@ namespace SocialAuth.Droid.Renderers
                 if (eventArgs.IsAuthenticated)
                 {
                     var token = eventArgs.Account.Properties["access_token"];
-                    App.Instance.NavigateToMain();
+                    MessagingCenter.Send<object, string>(this, "GetUser", token);
                 }
                 else
                 {
-                    // The user cancelled
+                    App.Current.MainPage = new NavigationPage(new LoginPage());
                 }
             };
 

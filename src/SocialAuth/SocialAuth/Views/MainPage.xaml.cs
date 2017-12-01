@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SocialAuth.Models;
+using SocialAuth.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +11,11 @@ namespace SocialAuth.Views
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        MainPageViewModel vm;
+        public MainPage(User user)
         {
             InitializeComponent();
+            BindingContext = vm = new MainPageViewModel(user);
         }
     }
 }
