@@ -121,7 +121,7 @@
     <value>https://www.facebook.com/dialog/oauth</value>
   </data>
   <data name="ClientId" xml:space="preserve">
-    <value>191770411385105</value>
+    <value />
   </data>
   <data name="RedirectUrl" xml:space="preserve">
     <value>https://www.facebook.com/connect/login_success.html</value>

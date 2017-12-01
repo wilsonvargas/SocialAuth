@@ -6,7 +6,7 @@
         <StackLayout>
             <Button Text="Login with Facebook"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked" />
+                HorizontalOptions="CenterAndExpand" Command="{Binding LoginFacebookCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

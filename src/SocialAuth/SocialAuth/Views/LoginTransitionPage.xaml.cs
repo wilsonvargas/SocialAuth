@@ -11,15 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace SocialAuth.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class LoginTransitionPage : ContentPage
     {
         LoginPageViewModel vm;
-        public LoginPage()
+        public LoginTransitionPage()
         {
             InitializeComponent();
             BindingContext = vm = new LoginPageViewModel();
         }
-
-       
     }
 }

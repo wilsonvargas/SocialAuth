@@ -71,7 +71,7 @@ namespace SocialAuth.Resources.Facebook {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 191770411385105.
+        ///   Looks up a localized string similar to .
         /// </summary>
         public static string ClientId {
             get {
