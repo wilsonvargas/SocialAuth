@@ -17,6 +17,7 @@ namespace SocialAuth.Views
         public LoginTransitionPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
             BindingContext = vm = new LoginPageViewModel();
         }
     }

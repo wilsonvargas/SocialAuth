@@ -26,14 +26,13 @@ namespace SocialAuth.Droid.Renderers
         {
             base.OnElementChanged(e);
 
-            // this is a ViewGroup - so should be able to load an AXML file and FindView<>
             var activity = this.Context as Activity;
 
             var auth = new OAuth2Authenticator(
-                clientId: Variables.ClientId, // your OAuth2 client id
-                scope: Variables.Scope, // The scopes for the particular API you're accessing. The format for this will vary by API.
-                authorizeUrl: new Uri(Variables.AuthorizeUrl), // the auth URL for the service
-                redirectUrl: new Uri(Variables.RedirectUrl)); // the redirect URL for the service
+                clientId: Variables.ClientId,
+                scope: Variables.Scope, 
+                authorizeUrl: new Uri(Variables.AuthorizeUrl),
+                redirectUrl: new Uri(Variables.RedirectUrl));
 
             auth.Completed += (sender, eventArgs) => {
                 if (eventArgs.IsAuthenticated)

@@ -5,10 +5,26 @@
              Title="Main Page"
              x:Class="SocialAuth.Views.MainPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding User.Name}"
+        <StackLayout Padding="10" Orientation="Horizontal" 
+                     VerticalOptions="StartAndExpand" 
+                     HorizontalOptions="CenterAndExpand">
+            <Image HeightRequest="100" WidthRequest="100" Aspect="AspectFill">
+                <Image.Source>
+                    <UriImageSource Uri="{Binding User.ImageUrl}" />
+                </Image.Source>
+            </Image>
+            <StackLayout>
+                <Label Text="{Binding User.Name}"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="StartAndExpand" />
+                <Label Text="{Binding User.Email}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="StartAndExpand" />
+                <Label Text="{Binding User.Gender}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="StartAndExpand" />
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

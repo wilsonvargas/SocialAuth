@@ -18,10 +18,6 @@ namespace SocialAuth.ViewModels
         public LoginPageViewModel()
         {
             LoginFacebookCommand = new Command(LoginFacebook);
-            MessagingCenter.Subscribe<object>(this, "GoBack", (sender) =>
-            {
-                App.Current.MainPage = new NavigationPage(new LoginPage());
-            });
         }
 
         private void LoginFacebook()
