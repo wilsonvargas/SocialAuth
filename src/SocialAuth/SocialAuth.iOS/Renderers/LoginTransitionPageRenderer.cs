@@ -31,7 +31,7 @@ namespace SocialAuth.iOS.Renderers
                     var oAuthToken = new OAuthToken()
                     {
                         AccessToken = eventArgs.Account.Properties["access_token"],
-                        TokenType = eventArgs.Account.Properties["token_type"]
+                        //TokenType = eventArgs.Account.Properties["token_type"]
                     };
                     MessagingCenter.Send<object, OAuthToken>(this, "GetUser", oAuthToken);
                 }
