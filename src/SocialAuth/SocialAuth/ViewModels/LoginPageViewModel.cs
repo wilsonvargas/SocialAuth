@@ -1,4 +1,6 @@
-﻿using SocialAuth.Views;
+﻿using SocialAuth.Models;
+using SocialAuth.Resources;
+using SocialAuth.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,24 +14,45 @@ namespace SocialAuth.ViewModels
 {
     public class LoginPageViewModel : ViewModelBase
     {
-        public ICommand LoginFacebookCommand { get; set; }
+        public ICommand SocialLoginCommand { get; set; }
         public INavigation Navigation { get; set; }
 
         public LoginPageViewModel()
         {
-            LoginFacebookCommand = new Command(LoginFacebook);
+            SocialLoginCommand = new Command<string>(SocialLogin);
         }
 
-        private void LoginFacebook()
+        private void SocialLogin(string provider)
         {
-            IsBusy = true;
-            MessagingCenter.Subscribe<object, string>(this, "GetUser", async (sender, token) =>
+            switch (provider)
             {
-                var u = await Services.Facebook.Service.GetUserAsync(token);
-                App.Current.MainPage = new NavigationPage(new MainPage(u));
-            });
+                case "Facebook":
+                    Config.ClientId = Resources.Facebook.Variables.ClientId;
+                    Config.AuthorizeUrl = Resources.Facebook.Variables.AuthorizeUrl;
+                    Config.RedirectUrl = Resources.Facebook.Variables.RedirectUrl;
+                    Config.Scope = Resources.Facebook.Variables.Scope;
+                    Config.IsUsingNativeUI = false;
+                    MessagingCenter.Subscribe<object, OAuthToken>(this, "GetUser", async (sender, oAuthToken) =>
+                    {
+                        var u = await Services.Facebook.Service.GetUserAsync(oAuthToken.AccessToken);
+                        Application.Current.MainPage = new NavigationPage(new MainPage(u));
+                    });
+                    break;
+                case "Google":
+                    Config.ClientId = Resources.Google.Variables.ClientId;
+                    Config.AuthorizeUrl = Resources.Google.Variables.AuthorizeUrl;
+                    Config.RedirectUrl = Resources.Google.Variables.RedirectUrl;
+                    Config.Scope = Resources.Google.Variables.Scope;
+                    Config.IsUsingNativeUI = true;
+                    MessagingCenter.Subscribe<object, OAuthToken>(this, "GetUser", async (sender, oAuthToken) =>
+                    {
+                        var u = await Services.Google.Service.GetUserAsync(oAuthToken.TokenType, oAuthToken.AccessToken);
+                        Application.Current.MainPage = new NavigationPage(new MainPage(u));
+                    });
+                    break;
+            }
+            
             Navigation.PushAsync(new LoginTransitionPage());
-            IsBusy = false;
         }
     }
 }

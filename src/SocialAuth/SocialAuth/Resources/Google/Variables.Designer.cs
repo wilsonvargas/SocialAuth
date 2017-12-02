@@ -23,24 +23,24 @@ namespace SocialAuth.Resources.Google {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Variables {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Variables() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SocialAuth.Resources.Google.Resources", typeof(Resources).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SocialAuth.Resources.Google.Variables", typeof(Variables).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -52,7 +52,7 @@ namespace SocialAuth.Resources.Google {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -62,9 +62,18 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://accounts.google.com/o/oauth2/v2/auth.
+        /// </summary>
+        internal static string AuthorizeUrl {
+            get {
+                return ResourceManager.GetString("AuthorizeUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 602031139153-ug5k0o4h92g8i806huj8mk34rt29nd9o.apps.googleusercontent.com.
         /// </summary>
-        public static string ClientId {
+        internal static string ClientId {
             get {
                 return ResourceManager.GetString("ClientId", resourceCulture);
             }
@@ -73,7 +82,7 @@ namespace SocialAuth.Resources.Google {
         /// <summary>
         ///   Looks up a localized string similar to com.developermodeon.apps.SocialAuth:/oauth2redirect.
         /// </summary>
-        public static string RedirectUrl {
+        internal static string RedirectUrl {
             get {
                 return ResourceManager.GetString("RedirectUrl", resourceCulture);
             }
@@ -82,7 +91,7 @@ namespace SocialAuth.Resources.Google {
         /// <summary>
         ///   Looks up a localized string similar to email.
         /// </summary>
-        public static string Scope {
+        internal static string Scope {
             get {
                 return ResourceManager.GetString("Scope", resourceCulture);
             }

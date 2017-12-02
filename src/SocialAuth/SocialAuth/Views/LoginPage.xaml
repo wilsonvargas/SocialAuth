@@ -5,8 +5,15 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="Login with Facebook"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" Command="{Binding LoginFacebookCommand}" />
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Command="{Binding SocialLoginCommand}" 
+                    CommandParameter="Facebook" />
+            <Button Text="Login with Google Plus"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Command="{Binding SocialLoginCommand}" 
+                    CommandParameter="Google" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
