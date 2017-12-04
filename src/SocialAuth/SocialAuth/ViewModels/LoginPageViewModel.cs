@@ -28,6 +28,8 @@ namespace SocialAuth.ViewModels
             {
                 case "Facebook":
                     Config.ClientId = Resources.Facebook.Variables.ClientId;
+                    Config.ClientSecret = "";
+                    Config.AccesTokenUrl = "";
                     Config.AuthorizeUrl = Resources.Facebook.Variables.AuthorizeUrl;
                     Config.RedirectUrl = Resources.Facebook.Variables.RedirectUrl;
                     Config.Scope = Resources.Facebook.Variables.Scope;
@@ -40,13 +42,15 @@ namespace SocialAuth.ViewModels
                     break;
                 case "Google":
                     Config.ClientId = Resources.Google.Variables.ClientId;
+                    Config.ClientSecret = Resources.Google.Variables.ClientSecret;
+                    Config.AccesTokenUrl = Resources.Google.Variables.AccesTokenUrl;
                     Config.AuthorizeUrl = Resources.Google.Variables.AuthorizeUrl;
                     Config.RedirectUrl = Resources.Google.Variables.RedirectUrl;
                     Config.Scope = Resources.Google.Variables.Scope;
                     Config.IsUsingNativeUI = true;
                     MessagingCenter.Subscribe<object, OAuthToken>(this, "GetUser", async (sender, oAuthToken) =>
                     {
-                        var u = await Services.Google.Service.GetUserAsync(oAuthToken.TokenType, oAuthToken.AccessToken);
+                        var u = await Services.Google.Service.GetUserAsync(oAuthToken.AccessToken);
                         Application.Current.MainPage = new NavigationPage(new MainPage(u));
                     });
                     break;

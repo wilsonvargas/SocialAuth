@@ -13,5 +13,7 @@ namespace SocialAuth.Resources
         public static string AuthorizeUrl { get; set; }
         public static string RedirectUrl { get; set; }
         public static bool IsUsingNativeUI { get; set; }
+        public static string ClientSecret { get; set; }
+        public static string AccesTokenUrl { get; set; }
     }
 }

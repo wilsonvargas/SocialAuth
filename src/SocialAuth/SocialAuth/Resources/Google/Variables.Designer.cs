@@ -62,7 +62,16 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://accounts.google.com/o/oauth2/v2/auth.
+        ///   Looks up a localized string similar to https://accounts.google.com/o/oauth2/token.
+        /// </summary>
+        internal static string AccesTokenUrl {
+            get {
+                return ResourceManager.GetString("AccesTokenUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://accounts.google.com/o/oauth2/auth.
         /// </summary>
         internal static string AuthorizeUrl {
             get {
@@ -71,11 +80,20 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 602031139153-ug5k0o4h92g8i806huj8mk34rt29nd9o.apps.googleusercontent.com.
+        ///   Looks up a localized string similar to 602031139153-pco6rmu1d8i03q3lh830hggduf0q9shn.apps.googleusercontent.com.
         /// </summary>
         internal static string ClientId {
             get {
                 return ResourceManager.GetString("ClientId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0tAyt6QDp4Gz0I4KK8ti4tQM.
+        /// </summary>
+        internal static string ClientSecret {
+            get {
+                return ResourceManager.GetString("ClientSecret", resourceCulture);
             }
         }
         
@@ -89,7 +107,7 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to email.
+        ///   Looks up a localized string similar to openid.
         /// </summary>
         internal static string Scope {
             get {

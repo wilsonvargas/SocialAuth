@@ -117,16 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccesTokenUrl" xml:space="preserve">
+    <value>https://accounts.google.com/o/oauth2/token</value>
+  </data>
   <data name="AuthorizeUrl" xml:space="preserve">
-    <value>https://accounts.google.com/o/oauth2/v2/auth</value>
+    <value>https://accounts.google.com/o/oauth2/auth</value>
   </data>
   <data name="ClientId" xml:space="preserve">
-    <value>602031139153-ug5k0o4h92g8i806huj8mk34rt29nd9o.apps.googleusercontent.com</value>
+    <value>602031139153-pco6rmu1d8i03q3lh830hggduf0q9shn.apps.googleusercontent.com</value>
+  </data>
+  <data name="ClientSecret" xml:space="preserve">
+    <value>0tAyt6QDp4Gz0I4KK8ti4tQM</value>
   </data>
   <data name="RedirectUrl" xml:space="preserve">
     <value>com.developermodeon.apps.SocialAuth:/oauth2redirect</value>
   </data>
   <data name="Scope" xml:space="preserve">
-    <value>email</value>
+    <value>openid</value>
   </data>
 </root>
