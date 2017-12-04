@@ -98,7 +98,7 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to com.developermodeon.apps.SocialAuth:/oauth2redirect.
+        ///   Looks up a localized string similar to https://www.google.com.
         /// </summary>
         internal static string RedirectUrl {
             get {

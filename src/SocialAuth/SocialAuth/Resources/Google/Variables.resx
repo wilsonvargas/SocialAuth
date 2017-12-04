@@ -130,7 +130,7 @@
     <value>0tAyt6QDp4Gz0I4KK8ti4tQM</value>
   </data>
   <data name="RedirectUrl" xml:space="preserve">
-    <value>com.developermodeon.apps.SocialAuth:/oauth2redirect</value>
+    <value>https://www.google.com</value>
   </data>
   <data name="Scope" xml:space="preserve">
     <value>openid</value>

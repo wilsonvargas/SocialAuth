@@ -29,7 +29,7 @@ namespace SocialAuth.ViewModels
                 case "Facebook":
                     Config.ClientId = Resources.Facebook.Variables.ClientId;
                     Config.ClientSecret = "";
-                    Config.AccesTokenUrl = "";
+                    Config.AccesTokenUrl = "https://accounts.google.com/o/oauth2/token";
                     Config.AuthorizeUrl = Resources.Facebook.Variables.AuthorizeUrl;
                     Config.RedirectUrl = Resources.Facebook.Variables.RedirectUrl;
                     Config.Scope = Resources.Facebook.Variables.Scope;
@@ -48,7 +48,7 @@ namespace SocialAuth.ViewModels
                     Config.RedirectUrl = Resources.Google.Variables.RedirectUrl;
                     Config.Scope = Resources.Google.Variables.Scope;
                     Config.IsUsingNativeUI = true;
-                    MessagingCenter.Subscribe<object, OAuthToken>(this, "GetUser", async (sender, oAuthToken) =>
+                    MessagingCenter.Subscribe<object, OAuthToken>(this, "GetUserGoogle", async (sender, oAuthToken) =>
                     {
                         var u = await Services.Google.Service.GetUserAsync(oAuthToken.AccessToken);
                         Application.Current.MainPage = new NavigationPage(new MainPage(u));

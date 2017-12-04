@@ -28,19 +28,37 @@ namespace SocialAuth.Droid.Renderers
             base.OnElementChanged(e);
 
             var activity = this.Context as Activity;
+            OAuth2Authenticator auth = null;
 
-            var auth = new OAuth2Authenticator(
-                clientId: Config.ClientId,
-                clientSecret: Config.ClientSecret,
-                scope: Config.Scope,
-                authorizeUrl: new Uri(Config.AuthorizeUrl),
-                redirectUrl: new Uri(Config.AuthorizeUrl),
-                accessTokenUrl: new Uri(Config.AccesTokenUrl),
-                getUsernameAsync: null,
-                isUsingNativeUI: Config.IsUsingNativeUI
-            );
+            if (Config.IsUsingNativeUI)
+            {
+                auth = new OAuth2Authenticator(
+                               clientId: Config.ClientId,
+                               clientSecret: Config.ClientSecret,
+                               scope: Config.Scope,
+                               authorizeUrl: new Uri(Config.AuthorizeUrl),
+                               redirectUrl: new Uri(Config.RedirectUrl),
+                               accessTokenUrl: new Uri(Config.AccesTokenUrl),
+                               getUsernameAsync: null,
+                               isUsingNativeUI: Config.IsUsingNativeUI
+                           );
+            }
+            else
+            {
+                auth = new OAuth2Authenticator(
+                                clientId: Config.ClientId,
+                                scope: Config.Scope,
+                                authorizeUrl: new Uri(Config.AuthorizeUrl),
+                                redirectUrl: new Uri(Config.RedirectUrl),
+                                getUsernameAsync: null,
+                                isUsingNativeUI: Config.IsUsingNativeUI
+                            );
+            }
 
-            auth.Completed += (sender, eventArgs) => {
+
+
+            auth.Completed += (sender, eventArgs) =>
+            {
                 if (eventArgs.IsAuthenticated)
                 {
                     var oAuthToken = new OAuthToken()
@@ -54,8 +72,9 @@ namespace SocialAuth.Droid.Renderers
                     App.Current.MainPage = new NavigationPage(new LoginPage());
                 }
             };
+
             //var authActivity = new CustomTabsIntent.Builder().Build();
-            //authActivity.Intent = auth.GetUI(activity) as Intent;
+            //authActivity.Intent = auth.GetUI(activity);
             //authActivity.LaunchUrl(activity, Android.Net.Uri.Parse(Config.AuthorizeUrl));
             //Xamarin.Forms.Forms.Context.StartActivity(authActivity.Intent);
             activity.StartActivity(auth.GetUI(activity));
