@@ -55,7 +55,7 @@ namespace SocialAuth.ViewModels
                     });
                     break;
             }
-            
+
             Navigation.PushAsync(new LoginTransitionPage());
         }
     }

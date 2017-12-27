@@ -62,7 +62,7 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://accounts.google.com/o/oauth2/token.
+        ///   Looks up a localized string similar to https://www.googleapis.com/oauth2/v4/token.
         /// </summary>
         internal static string AccesTokenUrl {
             get {
@@ -71,7 +71,7 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://accounts.google.com/o/oauth2/auth.
+        ///   Looks up a localized string similar to https://accounts.google.com/o/oauth2/v2/auth.
         /// </summary>
         internal static string AuthorizeUrl {
             get {
@@ -80,7 +80,7 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 602031139153-pco6rmu1d8i03q3lh830hggduf0q9shn.apps.googleusercontent.com.
+        ///   Looks up a localized string similar to 602031139153-gbvh59pd102o5f215t4m92jheck44jn4.apps.googleusercontent.com.
         /// </summary>
         internal static string ClientId {
             get {
@@ -98,7 +98,7 @@ namespace SocialAuth.Resources.Google {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.google.com.
+        ///   Looks up a localized string similar to com.developermodeon.apps.SocialAuth:/oauth2redirect.
         /// </summary>
         internal static string RedirectUrl {
             get {
