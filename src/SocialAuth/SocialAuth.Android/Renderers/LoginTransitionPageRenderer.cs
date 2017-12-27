@@ -76,7 +76,7 @@ namespace SocialAuth.Droid.Renderers
             var authActivity = new CustomTabsIntent.Builder().Build();
             authActivity.Intent = auth.GetUI(activity);
             authActivity.LaunchUrl(activity, Android.Net.Uri.Parse(Config.AuthorizeUrl));
-            Xamarin.Forms.Forms.Context.StartActivity(authActivity.Intent);
+            Forms.Context.StartActivity(authActivity.Intent);
             //activity.StartActivity(auth.GetUI(activity));
         }
     }
